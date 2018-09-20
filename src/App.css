@@ -130,9 +130,12 @@ h2 {
 }
 .book-title,
 .book-authors {
+  font-family: 'Roboto Slab', serif;
   font-size: 0.8em;
+  color: #282828;
 }
 .book-title {
+  font-weight: 700;
   margin-top: 10px;
 }
 
