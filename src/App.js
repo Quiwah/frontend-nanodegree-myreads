@@ -1,15 +1,13 @@
-import React from 'react';
-import MainPage from './MainPage';
-import SearchPage from './SearchPage';
+import React, {Component} from 'react'
+import MainPage from './MainPage'
+import SearchPage from './SearchPage'
 
+import {Switch, Route} from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
+
 import './App.css'
 
 class BooksApp extends React.Component {
-  state = {
-    books: []
-  }
-
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books: books })
@@ -27,11 +25,10 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-      <SearchPage />
-        {/* <MainPage 
-        books={this.state.books}
-        moveShelf={this.moveShelf}
-        /> */}
+        <Switch>
+          <Route exact path='/' component={MainPage} />
+          <Route exact path='/search' component={SearchPage} /> 
+        </Switch>
       </div>
     )
   }
