@@ -22,7 +22,7 @@ class SearchPage extends Component {
       .then((foundBooks) => {
         if (foundBooks.error) {
           this.setState({ foundBooks: [] });
-        } else {
+        } else if (this.state.query === query) {
           this.setState({ foundBooks: foundBooks });
         }
       })
@@ -49,7 +49,6 @@ class SearchPage extends Component {
             <input
             type="text"
             placeholder="Search by title or author"
-            value={this.state.query}
             onChange={(event) => this.updateQuery(event.target.value)}
             />
           </div>
